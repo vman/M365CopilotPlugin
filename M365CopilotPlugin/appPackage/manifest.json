@@ -1,0 +1,63 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.16",
+  "version": "1.0.0",
+  "id": "${{TEAMS_APP_ID}}",
+  "packageName": "com.microsoft.teams.extension",
+  "developer": {
+    "name": "Teams App, Inc.",
+    "websiteUrl": "https://www.example.com",
+    "privacyUrl": "https://www.example.com/privacy",
+    "termsOfUseUrl": "https://www.example.com/termofuse"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "Cryptocurrency",
+    "full": "Cryptocurrency prices"
+  },
+  "description": {
+    "short": "Get the latest cryptocurrency prices",
+    "full": "Get the latest cryptocurrency prices and share them in a conversation. Search cryptocurrencies by name."
+  },
+  "accentColor": "#FFFFFF",
+  "bots": [
+  ],
+  "composeExtensions": [
+    {
+      "botId": "${{BOT_ID}}",
+      "commands": [
+        {
+          "id": "getPrice",
+          "description": "Get cryptocurrency price by name",
+          "title": "Get Cryptocurrentcy Price",
+          "type": "query",
+          "initialRun": false,
+          "fetchTask": false,
+          "context": [
+            "commandBox",
+            "compose",
+            "message"
+          ],
+          "parameters": [
+            {
+              "name": "cryptocurrencyName",
+              "title": "Cryptocurrency Name",
+              "description": "The name of the cryptocurrency. Value should either be bitcoin or ethereum. Output: bitcoin or ethereum",
+              "inputType": "text"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "configurableTabs": [],
+  "staticTabs": [],
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": []
+}
